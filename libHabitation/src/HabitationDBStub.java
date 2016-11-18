@@ -33,6 +33,7 @@ public class HabitationDBStub {
                 addresses[random.nextInt(addresses.length)]
             ));
         }
+        this.insert(new Apartment(100, 7, Country.UNITED_KINGDOM, "76 Blvd Of Broken Dreams"));
     }
 
     public void insert(Habitation h) {
