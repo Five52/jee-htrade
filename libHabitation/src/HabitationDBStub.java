@@ -61,7 +61,7 @@ public class HabitationDBStub {
      * Removes the habitation with the given id from this database.
      * @param id The id of the habitation to remove
      */
-    public void delete(int id) throws IndexOutOfBoundsException {
+    public void delete(int id) throws IllegalArgumentException {
         int index = -1;
         for (int i = 0; i < habitations.size(); i++) {
             if (habitations.get(i).getId() == id) {
@@ -70,7 +70,7 @@ public class HabitationDBStub {
             }
         }
         if (index == -1) {
-            throw new IndexOutOfBoundsException("Aucune habitation avec l'identifiant " + id + " n'a été trouvé.");
+            throw new IllegalArgumentException("Aucune habitation avec l'identifiant " + id + " n'a été trouvé.");
         }
         habitations.remove(index);
     }

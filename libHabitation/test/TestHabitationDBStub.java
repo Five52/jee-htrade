@@ -32,5 +32,11 @@ public class TestHabitationDBStub {
         h.delete(11);
         assertEquals(11, h.getAll().size());
     }
+
+    @Test (expected=IllegalArgumentException.class)
+    public void testDeleteFail() {
+        HabitationDBStub h = new HabitationDBStub();
+        h.delete(46);
+    }
     
 }
