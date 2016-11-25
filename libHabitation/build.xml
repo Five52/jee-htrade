@@ -1,6 +1,9 @@
 <?xml version="1.0" ?>
 <project name="LibHabitation" default="dist">
 
+    <property name="source.dir" location="src" />
+    <property name="doc.dest" location="doc" />
+
     <target name="compile" depends="init">
         <javac srcdir="." destdir="build" includeantruntime="false">
             <include name="src/**/*.java" />
@@ -12,7 +15,7 @@
     </target>
 
     <target name="doc" depends="init,compile">
-        <javadoc packagenames="src" sourcepath="." destdir="doc" />
+        <javadoc packagenames="habitations" sourcepath="${source.dir}" destdir="${doc.dest}" />
     </target>
 
     <target name="compiletest">

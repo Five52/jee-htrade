@@ -13,7 +13,7 @@ public interface IPersonDB {
      * @param pass The password for the person p
      * @throws Exception if the same email is already used
      */
-    public void insert(Person p, String pass);
+    public void insert(Person p, String pass) throws Exception;
 
     /**
      * Tells if a given couple email/password exists in this database.

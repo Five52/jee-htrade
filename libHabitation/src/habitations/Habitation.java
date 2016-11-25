@@ -98,7 +98,7 @@ public abstract class Habitation {
      * Sets the country where the habitation is located.
      * @param country The country where the habitation is located
      */
-    public void setCountry(Country Country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 

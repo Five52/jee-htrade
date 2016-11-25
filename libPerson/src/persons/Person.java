@@ -41,7 +41,7 @@ public class Person {
 
     /**
      * Sets the person's email.
-     * @return The person's email
+     * @param email The new person's email
      */
     public void setEmail(String email) {
         this.email = email;
