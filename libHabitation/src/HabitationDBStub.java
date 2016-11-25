@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * A stub of database of habitations. This provides RAM persistency but no long-term persistency.
  */
-public class HabitationDBStub {
+public class HabitationDBStub implements IHabitationDB {
 
     /**
      * The list of habitations in this database.
@@ -49,18 +49,12 @@ public class HabitationDBStub {
         this.insert(new House(12, 150, 8, 80, Country.SWITZERLAND, "21 Rue du Chocolat"));
     }
 
-    /**
-     * Adds a habitation in this database.
-     * @param h The new habitation to add
-     */
+    @Override
     public void insert(Habitation h) {
         habitations.add(h);
     }
 
-    /**
-     * Removes the habitation with the given id from this database.
-     * @param id The id of the habitation to remove
-     */
+    @Override
     public void delete(int id) throws IllegalArgumentException {
         int index = -1;
         for (int i = 0; i < habitations.size(); i++) {
@@ -75,10 +69,7 @@ public class HabitationDBStub {
         habitations.remove(index);
     }
 
-    /**
-     * Gives the entire list of habitations in this database.
-     * @return habitations The list of habitations
-     */
+    @Override
     public List<Habitation> getAll() {
         return habitations;
     }
