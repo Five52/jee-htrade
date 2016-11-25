@@ -6,11 +6,6 @@ package habitations;
 public abstract class Habitation {
 
     /**
-     * The habitation (unique) id.
-     */
-    protected int id;
-
-    /**
      * The habitation surface.
      */
     protected int surface;
@@ -32,26 +27,16 @@ public abstract class Habitation {
 
     /**
      * Builds a new habitation.
-     * @param id The habitation id
      * @param surface The habitation surface
      * @param nbRooms The habitation number of rooms
      * @param country The country where the habitations is located
      * @param address The habitation address
      */
-    public Habitation(int id, int surface, int nbRooms, Country country, String address) {
-        this.id = id;
+    public Habitation(int surface, int nbRooms, Country country, String address) {
         this.surface = surface;
         this.nbRooms = nbRooms;
         this.country = country;
         this.address = address;
-    }
-
-    /**
-     * Returns the habitation id.
-     * @return The habitation id
-     */
-    public int getId() {
-        return this.id;
     }
 
     /** 
