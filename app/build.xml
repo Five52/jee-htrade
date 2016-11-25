@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<project name="app" default="dist">
+
+    <path id="external">
+        <fileset dir="lib/">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <target name="compile" depends="init">
+        <javac srcdir="." destdir="build" includeantruntime="false">
+            <include name="src/**/*.java" />
+            <classpath refid="external" />
+        </javac>
+    </target>
+
+    <target name="dist" depends="init,compile">
+        <jar basedir="build" destfile="dist/libHabitation.jar" excludes="test/**"/>
+    </target>
+
+    <target name="doc" depends="init,compile">
+        <javadoc packagenames="src" sourcepath="src" destdir="doc" />
+    </target>
+
+    <target name="compiletest">
+        <javac srcdir="." destdir="build" classpath="build" classpathref="junit" includeantruntime="false">
+            <include name="test/**/*.java"/>
+        </javac>
+    </target>
+
+    <path id="junit">
+        <pathelement path="/usr/share/java/junit4.jar" />
+    </path>
+
+    <target name="test" depends="compile,compiletest">
+        <java fork="yes" classname="org.junit.runner.JUnitCore" classpath="build" classpathref="junit">
+            <jvmarg value="-ea" />
+            <arg value="test.TestHabitationDBStub" />
+        </java>
+    </target>
+
+    <target name="init">
+        <mkdir dir="build" />
+        <mkdir dir="dist" />
+        <mkdir dir="doc" />
+    </target>
+
+    <target name="clear">
+        <antcall target="clean" />
+        <delete dir="build" />
+        <delete dir="dist" />
+        <delete dir="doc" />
+    </target>
+
+    <target name="clean">
+        <delete verbose="true">
+            <fileset dir="." includes="**/*~"  defaultexcludes="no" />
+        </delete>
+    </target>
+
+</project>
