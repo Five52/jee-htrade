@@ -22,6 +22,10 @@ public class House extends Habitation {
         this.outdoorSurface = outdoorSurface;
     }
 
+    public House() {
+
+    }
+
     /**
      * Returns the house outdoor surface.
      * @return The house outdoor surface

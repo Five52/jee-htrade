@@ -15,7 +15,10 @@ public class Apartment extends Habitation {
     public Apartment(int surface, int nbRooms, Country country, String address) {
         super(surface, nbRooms, country, address);
     }
-
+    
+    public Apartment() {
+        super();
+    }
 
     /**
      * Returns a representation of this apartment as a string.
