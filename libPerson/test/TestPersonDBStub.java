@@ -16,14 +16,14 @@ public class TestPersonDBStub {
     @Test
     public void testInsert() {
         PersonDBStub p = new PersonDBStub();
-        p.insert(new Person("robert.martin@mymail.net", "Robert", "Martin"), "robert");
+        p.insert(new Person("robert.martin@mymail.net", "Robert", "Martin", "robert"));
         assertEquals(4, p.getAll().size());
     }
 
     @Test (expected=IllegalArgumentException.class)
     public void testInsertFail() {
         PersonDBStub p = new PersonDBStub();
-        p.insert(new Person("marie.dupont@email.com", "Marie-Anne", "Dupond"), "marieanne");
+        p.insert(new Person("marie.dupont@email.com", "Marie-Anne", "Dupond", "marieanne"));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class TestPersonDBStub {
     @Test
     public void testUpdate() {
         PersonDBStub p = new PersonDBStub();
-        p.update("jacques.durand@mail.com", new Person("jacques.durand@mail.com", "Jean-Jacques", "Dupont"));
+        p.update("jacques.durand@mail.com", new Person("jacques.durand@mail.com", "Jean-Jacques", "Dupont", "jacques"));
         assertEquals("Jean-Jacques", p.get("jacques.durand@mail.com").getFirstName());  
         assertEquals("Dupont", p.get("jacques.durand@mail.com").getLastName());  
     }
@@ -76,6 +76,6 @@ public class TestPersonDBStub {
     @Test (expected=IllegalArgumentException.class)
     public void testUpdateFail() {
         PersonDBStub p = new PersonDBStub();
-        p.update("new.person@my-mail.ok", new Person("new.person@my-mail.ok", "Mélissa", "Martin"));
+        p.update("new.person@my-mail.ok", new Person("new.person@my-mail.ok", "Mélissa", "Martin", "melissa"));
     }
 }

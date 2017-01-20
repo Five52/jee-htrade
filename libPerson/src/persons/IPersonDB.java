@@ -13,7 +13,7 @@ public interface IPersonDB {
      * @param pass The password for the person p
      * @throws Exception if the same email is already used
      */
-    public void insert(Person p, String pass) throws Exception;
+    public void insert(Person p) throws Exception;
 
     /**
      * Tells if a given couple email/password exists in this database.
@@ -22,12 +22,14 @@ public interface IPersonDB {
      * @return true if the given couple exists in the database, false otherwise
      */
     public boolean isValid(String email, String password);
+    
     /**
      * Tells if a person with the given email already exists in this database.
      * @param email The email to test
      * @return true if the given email already exists. Otherwise, false
      */
     public boolean exists(String email);
+    
     /**
      * Returns the person with the given email.
      * @param email The email to search for
@@ -35,6 +37,12 @@ public interface IPersonDB {
      * @throws Exception if the email does not exist in the database
      */
     public Person get(String email) throws Exception;
+
+    /**
+     * Gives the entire list of persons in this database.
+     * @return persons The list of persons
+     */
+    public Collection<Person> getAll();
 
     /**
      * Update the passowrd of the person with the given email.
@@ -58,10 +66,4 @@ public interface IPersonDB {
      * @throws Exception if no person is currently associated with the given email
      */
     public void delete(String email) throws Exception;
-
-    /**
-     * Gives the entire list of persons in this database.
-     * @return persons The list of persons
-     */
-    public Collection<Person> getAll();
 }
