@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="habitations">
+    <class name="Habitation" table="habitation">
+        <id name="id" type="long" column="id" />
+        <property name="surface" />
+        <property name="nbRooms" />
+        <property name="country"/>
+        <property name="address"/>
+
+        <joined-subclass name="Apartment" table="apartment">
+            <key column="id" />
+        </joined-subclass>
+
+        <joined-subclass name="House" table="house">
+            <key column="id" />
+            <property name="outdoorSurface" />
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

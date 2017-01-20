@@ -6,6 +6,11 @@ package habitations;
 public abstract class Habitation {
 
     /**
+     * The id
+     */
+    protected long id;
+    
+    /**
      * The habitation surface.
      */
     protected int surface;
@@ -37,6 +42,26 @@ public abstract class Habitation {
         this.nbRooms = nbRooms;
         this.country = country;
         this.address = address;
+    }
+
+    public Habitation() {
+
+    }
+
+    /**
+     * Returns the habitation id
+     * @return long the habitation id
+     */
+    public long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the habitation id
+     * @param long id
+     */
+    public void setId(long id) {
+        this.id = id;
     }
 
     /** 
