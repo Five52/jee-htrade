@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import persons.Person;
 
 public class TestPersonHibernate {
-    private sessionFactory SessionFactory;
+    private SessionFactory sessionFactory;
     Person p1;
 
     public static void main(String[] args) {
@@ -119,12 +119,12 @@ public class TestPersonHibernate {
     /**
      * Print all persons
      */
-    public void printAllPersons() {
+    public void displayAllPersons() {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            Query query = session.createGuery("from Person");
+            Query query = session.createQuery("from Person");
             List<Person> allPersons = (List<Person>) query.list();
             for (Person person: allPersons) {
                 System.out.println(person);
