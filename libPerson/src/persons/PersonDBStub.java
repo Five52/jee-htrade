@@ -15,29 +15,22 @@ public class PersonDBStub implements IPersonDB {
     protected List<Person> persons;
 
     /**
-     * A list of passwords, associated with persons in {@link #persons}.
-     */
-    protected List<String> passwords;
-
-    /**
      * Builds a new list of persons.
      */
     public PersonDBStub() {
         this.persons = new ArrayList<Person>();
-        this.passwords = new ArrayList<String>();
 
-        this.insert(new Person("jacques.durand@mail.com", "Jacques", "Durand"), "jacques");
-        this.insert(new Person("marie.dupont@email.com", "Marie", "Dupont"), "marie");
-        this.insert(new Person("jean-pierre.bar@mail.fr", "Jean-Pierre", "Bar"), "bar");
+        this.insert(new Person("jacques.durand@mail.com", "Jacques", "Durand", "jacques"));
+        this.insert(new Person("marie.dupont@email.com", "Marie", "Dupont", "marie"));
+        this.insert(new Person("jean-pierre.bar@mail.fr", "Jean-Pierre", "Bar", "bar"));
     }
 
     @Override
-    public void insert(Person p, String pass) throws IllegalArgumentException {
+    public void insert(Person p) throws IllegalArgumentException {
         if (this.exists(p.getEmail())) {
             throw new IllegalArgumentException("Impossible d'ajouter \n" + p.toString() + " : \nEmail déjà utilisé.");
         }
         persons.add(p);
-        passwords.add(pass);
     }
 
     @Override
@@ -51,7 +44,7 @@ public class PersonDBStub implements IPersonDB {
         if (i == persons.size()) {
             return false;
         }
-        return passwords.get(i).equals(password);
+        return persons.get(i).getPassword().equals(password);
     }
 
     @Override
@@ -75,6 +68,11 @@ public class PersonDBStub implements IPersonDB {
     }
 
     @Override
+    public List<Person> getAll() {
+        return persons;
+    }
+
+    @Override
     public void updatePassword(String email, String password) throws IllegalArgumentException {
         int index = -1;
         for (int i = 0; i < persons.size(); i++) {
@@ -86,7 +84,7 @@ public class PersonDBStub implements IPersonDB {
         if (index == -1) {
             throw new IllegalArgumentException("La personne avec l'email " + email + " n'existe pas.");
         }
-        passwords.set(index, password);
+        persons.get(index).setPlainPassword(password);
     }
 
     @Override
@@ -117,11 +115,6 @@ public class PersonDBStub implements IPersonDB {
             throw new IllegalArgumentException("Personne ne possède l'email " + email);
         }
         persons.remove(index);
-    }
-
-    @Override
-    public List<Person> getAll() {
-        return persons;
     }
 
 }
