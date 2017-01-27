@@ -19,10 +19,6 @@ public class PersonDBStub implements IPersonDB {
      */
     public PersonDBStub() {
         this.persons = new ArrayList<Person>();
-
-        this.insert(new Person("jacques.durand@mail.com", "Jacques", "Durand", "jacques"));
-        this.insert(new Person("marie.dupont@email.com", "Marie", "Dupont", "marie"));
-        this.insert(new Person("jean-pierre.bar@mail.fr", "Jean-Pierre", "Bar", "bar"));
     }
 
     @Override

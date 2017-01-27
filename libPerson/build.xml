@@ -29,7 +29,7 @@
     </target>
 
     <target name="compiletest">
-        <javac srcdir="." destdir="build" classpath="build" classpathref="junit" includeantruntime="false">
+        <javac srcdir="." destdir="build" classpath="build" includeantruntime="false">
             <classpath refid="external" />
             <include name="test/**/*.java"/>
         </javac>
@@ -40,9 +40,12 @@
     </path>
 
     <target name="test" depends="compile,compiletest">
-        <java fork="yes" classname="org.junit.runner.JUnitCore" classpath="build" classpathref="junit">
+        <java fork="yes" classname="test.TestPersonDBStub" classpath="build">
             <jvmarg value="-ea" />
-            <arg value="test.TestPersonDBStub" />
+        </java>
+        <java fork="yes" classname="test.TestPersonHibernate" classpath="build:resources">
+            <classpath refid="external" />
+            <jvmarg value="-ea" />
         </java>
     </target>
 
