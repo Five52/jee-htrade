@@ -4,8 +4,18 @@
     <property name="source.dir" location="src" />
     <property name="doc.dest" location="doc" />
 
+    <path id="external">
+        <fileset dir="lib/">
+            <include name="**/*.jar" />
+        </fileset>
+        <fileset dir="compileonlylib/">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
     <target name="compile" depends="init">
         <javac srcdir="." destdir="build" includeantruntime="false">
+            <classpath refid="external" />
             <include name="src/**/*.java" />
         </javac>
     </target>
@@ -21,6 +31,7 @@
     <target name="compiletest">
         <javac srcdir="." destdir="build" classpath="build" classpathref="junit" includeantruntime="false">
             <include name="test/**/*.java"/>
+            <classpath refid="external" />
         </javac>
     </target>
 
