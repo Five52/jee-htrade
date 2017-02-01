@@ -18,7 +18,6 @@ import persons.Person;
 
 public class TestPersonHibernate {
     private SessionFactory sessionFactory;
-    Person p1;
 
     public static void main(String[] args) {
         Logger logger = Logger.getLogger("org.hibernate");
@@ -96,7 +95,7 @@ public class TestPersonHibernate {
      */
     public void addPersons() {
         Session session = sessionFactory.openSession();
-        Query query = session.createQuery("from Person"); 
+        Query query = session.createQuery("from Person");
 
         if (((List<Person>) query.list()).isEmpty()) {
             Transaction transaction = null;
@@ -117,7 +116,7 @@ public class TestPersonHibernate {
     }
 
     /**
-     * Print all persons
+     * Display all persons
      */
     public void displayAllPersons() {
         Session session = sessionFactory.openSession();

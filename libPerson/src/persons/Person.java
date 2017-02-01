@@ -68,6 +68,14 @@ public class Person {
     }
 
     /**
+     * Sets the person's first name.
+     * @param firstName The new person's first name
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
      * Returns the person's last name.
      * @return The person's last name
      */
@@ -76,7 +84,7 @@ public class Person {
     }
 
     /**
-     * Sets the person's last name (e.g., a married woman).
+     * Sets the person's last name.
      * @param lastName The new person's last name
      */
     public void setLastName(String lastName) {
