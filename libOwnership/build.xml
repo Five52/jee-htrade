@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<project name="LibOwnership" default="dist">
+
+    <property name="source.dir" location="src" />
+    <property name="doc.dest" location="doc" />
+
+    <path id="external">
+        <fileset dir="lib/">
+            <include name="**/*.jar" />
+        </fileset>
+        <fileset dir="compileonlylib/">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="compile" depends="init">
+        <javac srcdir="." destdir="build" includeantruntime="false">
+            <classpath refid="external" />
+            <include name="src/**/*.java" />
+        </javac>
+    </target>
+
+    <target name="dist" depends="init,compile">
+        <jar basedir="build" destfile="dist/libOwnership.jar" excludes="test/**"/>
+    </target>
+
+    <target name="doc" depends="init,compile">
+        <javadoc packagenames="persons" sourcepath="${source.dir}" destdir="${doc.dest}" />
+    </target>
+
+    <target name="compiletest">
+        <javac srcdir="." destdir="build" classpath="build" includeantruntime="false">
+            <classpath refid="external" />
+            <include name="test/**/*.java"/>
+        </javac>
+    </target>
+
+    <path id="junit">
+        <pathelement path="/usr/share/java/junit4.jar" />
+    </path>
+
+    <target name="test" depends="compile,compiletest">
+        <java fork="yes" classname="test.TestOwnershipDBStub" classpath="build">
+            <jvmarg value="-ea" />
+        </java>
+        <java fork="yes" classname="test.TestOwnershipHibernate" classpath="build:resources">
+            <classpath refid="external" />
+            <jvmarg value="-ea" />
+        </java>
+    </target>
+
+    <target name="init">
+        <mkdir dir="build" />
+        <mkdir dir="dist" />
+        <mkdir dir="doc" />
+    </target>
+
+    <target name="clear">
+        <antcall target="clean" />
+        <delete dir="build" />
+        <delete dir="dist" />
+        <delete dir="doc" />
+    </target>
+
+    <target name="clean">
+        <delete verbose="true">
+            <fileset dir="." includes="**/*~"  defaultexcludes="no" />
+        </delete>
+    </target>
+
+</project>
