@@ -35,9 +35,9 @@ public class HabitationDBStub implements IHabitationDB {
                 new House(
                     random.nextInt(300),
                     random.nextInt(11),
-                    random.nextInt(500),
                     countries[random.nextInt(countries.length)],
-                    addresses[random.nextInt(addresses.length)]
+                    addresses[random.nextInt(addresses.length)],
+                    random.nextInt(500)
             ));
             this.insert(
                 i+6,
@@ -49,7 +49,7 @@ public class HabitationDBStub implements IHabitationDB {
             ));
         }
         this.insert(11, new Apartment(84, 7, Country.UNITED_KINGDOM, "76 Blvd Of Broken Dreams"));
-        this.insert(12, new House(80, 8, 54, Country.SWITZERLAND, "21 Rue du Chocolat"));
+        this.insert(12, new House(80, 8, Country.SWITZERLAND, "21 Rue du Chocolat", 54));
     }
 
     @Override

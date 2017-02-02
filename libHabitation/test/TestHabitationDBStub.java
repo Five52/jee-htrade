@@ -17,7 +17,7 @@ public class TestHabitationDBStub {
     @Test
     public void testInsertHouse() {
        HabitationDBStub h = new HabitationDBStub();
-       h.insert(13, new House(140, 6, 60, Country.FRANCE, "4 Rue du 6 Juin"));
+       h.insert(13, new House(140, 60, Country.FRANCE, "4 Rue du 6 Juin", 6));
        assertEquals(13, h.getAll().size());
     }
 

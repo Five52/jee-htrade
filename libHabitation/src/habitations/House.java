@@ -17,7 +17,7 @@ public class House extends Habitation {
      * @param country The country where the house is located
      * @param address The house address
      */
-    public House(int surface, int nbRooms, int outdoorSurface, Country country, String address) {
+    public House(int surface, int nbRooms, Country country, String address, int outdoorSurface) {
         super(surface, nbRooms, country, address);
         this.outdoorSurface = outdoorSurface;
     }
