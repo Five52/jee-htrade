@@ -2,6 +2,8 @@ package test;
 
 import java.util.List;
 
+import persons.Person;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Query;
@@ -13,8 +15,6 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import java.util.logging.Logger;
 import java.util.logging.Level;
-
-import persons.Person;
 
 public class TestPersonHibernate {
     private SessionFactory sessionFactory;
@@ -30,20 +30,20 @@ public class TestPersonHibernate {
         System.out.println("Testing Hibernate persons..");
         
         try {
-            System.out.println("Initializing..");
+            System.out.println("Initializing...");
             System.out.flush();
 
             instance.initialize();
             System.out.println("Instance initialized.");
 
-            System.out.println("Creating persons..");
+            System.out.println("Creating persons...");
             System.out.flush();
             instance.addPersons();
 
             System.out.println("Persons created.");
 
-            System.out.println("Retrieving persons..");
-            instance.displayAllPersons();
+            System.out.println("Retrieving persons...");
+            instance.printAllPersons();
 
             System.out.println("Persons retrieved.");
         } catch(Exception e) {
@@ -75,7 +75,7 @@ public class TestPersonHibernate {
             serviceRegistry = builder.build();
             this.sessionFactory = config.buildSessionFactory(serviceRegistry);
         } catch (Throwable e) {
-            System.out.println("Erreur lors de l'initialisation de la Session Factory : " + e);
+            System.out.println("Error during the initialization of Session Factory : " + e);
             StandardServiceRegistryBuilder.destroy(serviceRegistry);
             throw e;
         }
@@ -116,9 +116,9 @@ public class TestPersonHibernate {
     }
 
     /**
-     * Display all persons
+     * Print all persons
      */
-    public void displayAllPersons() {
+    public void printAllPersons() {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
         try {
