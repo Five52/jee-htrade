@@ -4,6 +4,7 @@ import java.util.List;
 import habitations.Habitation;
 import habitations.House;
 import habitations.Apartment;
+import habitations.Country;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,7 +27,7 @@ public class TestHibernateHabitations {
         logger.setLevel(Level.WARNING);
         TestHibernateHabitations instance = new TestHibernateHabitations();
         boolean errorOccured=false;
-        System.out.println("Test Hibernate products...");
+        System.out.println("Test Hibernate habitations...");
         try {
             System.out.print("Initializing...");
             System.out.flush();
@@ -66,7 +67,7 @@ public class TestHibernateHabitations {
             serviceRegistry = builder.build();
             this.sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Throwable e) {
-            System.out.println("Erreur lors de l'initialisation de la session factory: " + e);
+            System.out.println("Error during the initialization of Session Factory : " + e);
             StandardServiceRegistryBuilder.destroy(serviceRegistry);
             throw e;
         }

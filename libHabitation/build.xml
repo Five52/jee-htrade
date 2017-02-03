@@ -44,6 +44,10 @@
             <jvmarg value="-ea" />
             <arg value="test.TestHabitationDBStub" />
         </java>
+        <java fork="yes" classname="test.TestHibernateHabitations" classpath="build:resources">
+            <classpath refid="external" />
+            <jvmarg value="-ea" />
+        </java>
     </target>
 
     <target name="init">
