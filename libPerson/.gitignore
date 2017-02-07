@@ -1,1 +1,4 @@
 doc/
+
+# Hibernate config file
+resources/hibernate.cfg.xml
