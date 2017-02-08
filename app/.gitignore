@@ -2,3 +2,4 @@ build/
 dist/
 lib/
 htrade/
+app/build.xml
