@@ -1,61 +1,59 @@
 <?xml version="1.0" ?>
-<project name="app" default="dist">
+<project name="Habitations trade app" default="dist">
 
-    <path id="external">
-        <fileset dir="lib/">
-            <include name="*.jar" />
-        </fileset>
-    </path>
+<property name="autodeploydir" value="../htrade/autodeploy" />
 
-    <target name="compile" depends="init">
-        <javac srcdir="." destdir="build" includeantruntime="false">
-            <include name="src/**/*.java" />
-            <classpath refid="external" />
-        </javac>
-    </target>
+<path id="jee">
+    <fileset dir="/home/thomas/Documents/glassfish4/glassfish/modules/">
+    <include name="*.jar"/>
+  </fileset>
+</path>
 
-    <target name="dist" depends="init,compile">
-        <jar basedir="build" destfile="dist/libHabitation.jar" excludes="test/**"/>
-    </target>
+<path id="external">
+  <fileset dir="lib/">
+    <include name="*.jar"/>
+  </fileset>
+</path>
 
-    <target name="doc" depends="init,compile">
-        <javadoc packagenames="src" sourcepath="src" destdir="doc" />
-    </target>
+<target name="compile" depends="init">
+  <javac srcdir="." destdir="build/WEB-INF/classes" includeantruntime="false">
+    <classpath refid="jee" />
+    <classpath refid="external" />
+  </javac>
+</target>
 
-    <target name="compiletest">
-        <javac srcdir="." destdir="build" classpath="build" classpathref="junit" includeantruntime="false">
-            <include name="test/**/*.java"/>
-        </javac>
-    </target>
+<target name="dist" depends="init,compile">
+  <copy todir="build/">
+    <fileset dir="web" includes="**/*" />
+  </copy>
+  <copy todir="build/WEB-INF/lib">
+    <fileset dir="lib" includes="*" />
+  </copy>
+  <jar basedir="build" destfile="dist/htrade.war" />
+</target>
 
-    <path id="junit">
-        <pathelement path="/usr/share/java/junit4.jar" />
-    </path>
+<target name="deploy" depends="dist">
+  <copy todir="${autodeploydir}" file="dist/htrade.war" />
+</target>
 
-    <target name="test" depends="compile,compiletest">
-        <java fork="yes" classname="org.junit.runner.JUnitCore" classpath="build" classpathref="junit">
-            <jvmarg value="-ea" />
-            <arg value="test.TestHabitationDBStub" />
-        </java>
-    </target>
+<target name="init">
+  <mkdir dir="build" />
+  <mkdir dir="build/WEB-INF" />
+  <mkdir dir="build/WEB-INF/lib" />
+  <mkdir dir="build/WEB-INF/classes" />
+  <mkdir dir="dist" />
+</target>
 
-    <target name="init">
-        <mkdir dir="build" />
-        <mkdir dir="dist" />
-        <mkdir dir="doc" />
-    </target>
+<target name="clear">
+  <antcall target="clean" />
+  <delete dir="build" />
+  <delete dir="dist" />
+</target>
 
-    <target name="clear">
-        <antcall target="clean" />
-        <delete dir="build" />
-        <delete dir="dist" />
-        <delete dir="doc" />
-    </target>
-
-    <target name="clean">
-        <delete verbose="true">
-            <fileset dir="." includes="**/*~"  defaultexcludes="no" />
-        </delete>
-    </target>
+<target name="clean">
+  <delete verbose="true">
+    <fileset dir="." includes="**/*~"  defaultexcludes="no" />
+  </delete>
+</target>
 
 </project>
