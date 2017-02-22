@@ -10,11 +10,12 @@
     version="3.0">
 
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>src.AppTestServlet</servlet-class>
+        <servlet-name>FrontController</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>FrontController</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>
