@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<project name="LibOwnership" default="dist">
+<project name="LibTrade" default="dist">
 
     <property name="source.dir" location="src" />
     <property name="doc.dest" location="doc" />
@@ -21,7 +21,7 @@
     </target>
 
     <target name="dist" depends="init,compile">
-        <jar basedir="build" destfile="dist/libOwnership.jar" excludes="test/**"/>
+        <jar basedir="build" destfile="dist/libTrade.jar" excludes="test/**"/>
     </target>
 
     <target name="doc" depends="init,compile">
@@ -40,10 +40,10 @@
     </path>
 
     <target name="test" depends="compile,compiletest">
-        <java fork="yes" classname="test.TestOwnershipDBStub" classpath="build">
+        <java fork="yes" classname="test.TestTradeDBStub" classpath="build">
             <jvmarg value="-ea" />
         </java>
-        <java fork="yes" classname="test.TestOwnershipHibernate" classpath="build:resources">
+        <java fork="yes" classname="test.TestTradeHibernate" classpath="build:resources">
             <classpath refid="external" />
             <jvmarg value="-ea" />
         </java>
