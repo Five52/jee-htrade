@@ -53,6 +53,8 @@
         <mkdir dir="build" />
         <mkdir dir="dist" />
         <mkdir dir="doc" />
+        <mkdir dir="lib" />
+        <mkdir dir="compileonlylib" />
     </target>
 
     <target name="clear">
@@ -60,6 +62,8 @@
         <delete dir="build" />
         <delete dir="dist" />
         <delete dir="doc" />
+        <delete dir="lib" />
+        <delete dir="compileonlylib" />
     </target>
 
     <target name="clean">
