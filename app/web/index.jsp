@@ -1,4 +1,3 @@
 <jsp:include page="fragments/header.jsp" />
 
-</main>
-</html>
+<jsp:include page="fragments/footer.jsp" />
