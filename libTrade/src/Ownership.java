@@ -2,8 +2,6 @@ package trades;
 
 import persons.Person;
 import habitations.Habitation;
-import habitations.House;
-import habitations.Apartment;
 
 public class Ownership {
 
