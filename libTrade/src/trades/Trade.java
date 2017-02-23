@@ -5,12 +5,17 @@ import habitations.Habitation;
 import java.time.LocalDateTime;
 
 public class Trade {
-    /** 
+    /**
+     * The id
+     */
+    protected long id;
+
+    /**
      * The first habitation concerned by the trade.
      */
     protected Habitation firstHabitation;
 
-    /** 
+    /**
      * The second habitation concerned by the trade.
      */
     protected Habitation secondHabitation;
@@ -42,6 +47,22 @@ public class Trade {
         this.secondHabitation = secondHabitation;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    /**
+     * Returns the trade id
+     * @return long the trade id
+     */
+    public long getId() {
+        return this.id;
+    }
+
+    /**
+     * Sets the trade id
+     * @param long id
+     */
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
