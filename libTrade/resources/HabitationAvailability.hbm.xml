@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="trades">
+    <class name="HabitationAvailability" table="habitation_availability">
+        <composite-id>
+            <key-many-to-one name="habitation" class="habitations.Habitation" column="habitation" />
+            <key-property name="startDate" />
+        </composite-id>
+    </class>
+</hibernate-mapping>

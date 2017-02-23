@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+    PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="trades">
+    <class name="Trade" table="trade">
+        <composite-id>
+            <many-to-one name="firstHabitation" class="habitations.Habitation" column="firsthabitation_id" unique="true" not-null="true" />
+            <many-to-one name="secondHabitation" class="habitations.Habitation" column="secondhabitation_id" unique="true" not-null="true" />
+            <property name="startDate" />
+        </composite-id>
+        <property name="endDate" />
+    </class>
+</hibernate-mapping>
