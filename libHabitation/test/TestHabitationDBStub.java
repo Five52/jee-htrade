@@ -1,9 +1,9 @@
 package test;
 
+import habitations.*;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import habitations.*;
 
 public class TestHabitationDBStub {
 
@@ -36,7 +36,7 @@ public class TestHabitationDBStub {
         HabitationDBStub h = new HabitationDBStub();
         h.get(65);
     }
-    
+
     @Test
     public void testGetAll() {
         HabitationDBStub h = new HabitationDBStub();
@@ -70,5 +70,5 @@ public class TestHabitationDBStub {
         HabitationDBStub h = new HabitationDBStub();
         h.delete(46);
     }
-    
+
 }

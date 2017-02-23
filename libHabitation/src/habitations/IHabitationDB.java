@@ -30,6 +30,7 @@ public interface IHabitationDB {
     /**
      * Updates the habitation with the given id.
      * @param id The id of the habitation to update
+     * @param h The new habitation
      * @throws Exception if no habitation exists with the given id in the database
      */
     public void update(int id, Habitation h) throws Exception;
