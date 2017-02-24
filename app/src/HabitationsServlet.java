@@ -17,7 +17,7 @@ import javax.servlet.ServletException;
 
 public class HabitationsServlet extends HttpServlet {
 
-    private static final String HABITATIONs_ATTR_NAME = "habitation";
+    private static final String HABITATIONS_ATTR_NAME = "habitation";
 
     private SessionFactory sessionFactory;
 
@@ -49,7 +49,7 @@ public class HabitationsServlet extends HttpServlet {
     }
 
     protected void processRequest(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        if (req.getSession().getAttribute(HabitationsServlet.HABITATIONs_ATTR_NAME) == null) {
+        if (req.getSession().getAttribute(HabitationsServlet.HABITATIONS_ATTR_NAME) == null) {
             this.loadHabitations(req.getSession());
         }
         String action = req.getParameter("action");
@@ -72,7 +72,7 @@ public class HabitationsServlet extends HttpServlet {
         List allHabitations = query.list();
 
         // Stores all habitations into HTTP session
-        httpSession.setAttribute(HabitationsServlet.HABITATIONs_ATTR_NAME, allHabitations);
+        httpSession.setAttribute(HabitationsServlet.HABITATIONS_ATTR_NAME, allHabitations);
 
         httpSession.setAttribute("habitations", allHabitations);
         hibernateSession.close();
