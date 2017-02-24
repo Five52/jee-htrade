@@ -14,7 +14,7 @@ public interface IOwnershipDB {
      * Adds an ownership in this database.
      * @param o The new ownership to add
      */
-    public void insert(Ownership o);
+    public void insert(Ownership o) throws Exception;
 
     /**
      * Returns the ownership with the given habitation.
@@ -23,6 +23,13 @@ public interface IOwnershipDB {
      * @throws Exception if no ownership exists with the given id in the database
      */
     public Ownership get(Habitation h) throws Exception;
+
+    /**
+     * Tells if an ownership with the given habitation already exists in this database.
+     * @param habitation The habitation to test
+     * @return true if the given habitation already exists. Otherwise, false
+     */
+    public boolean exists(Habitation h);
 
     /**
      * Gives the entire list of ownerships in this database.

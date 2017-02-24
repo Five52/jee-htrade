@@ -40,14 +40,16 @@
     </path>
 
     <target name="test" depends="compile,compiletest">
-        <java fork="yes" classname="org.junit.runner.JUnitCore" classpath="build" classpathref="junit">
-            <jvmarg value="-ea" />
-            <arg value="test.TestOwnershipDBStub" />
-        </java>
-        <!-- <java fork="yes" classname="test.TestHibernateOwnerships" classpath="build:resources">
+        <java classname="test.TestOwnershipDBStub" classpath="build">
             <classpath refid="external" />
             <jvmarg value="-ea" />
-        </java> -->
+        </java>
+        <!--
+        <java fork="yes" classname="test.TestPersonHibernate" classpath="build:resources">
+            <classpath refid="external" />
+            <jvmarg value="-ea" />
+        </java>
+        -->
     </target>
 
     <target name="init">
