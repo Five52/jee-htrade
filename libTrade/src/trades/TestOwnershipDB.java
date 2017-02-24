@@ -39,5 +39,16 @@ public class TestOwnershipDB {
             }
         }
         assert marieApartment;
+        assert instance.exists(h1);
+        assert instance.exists(h2);
+        assert instance.exists(h3);
+        assert instance.exists(h4);
+        assert instance.exists(h5);
+        Habitation h6 = new House(115, 9, Country.BELGIUM, "18 Avenue de Bruxelles", 95);
+        assert instance.exists(h6);
+
+        instance.delete(h4);
+        assert instance.getAll().size() == 3;
+        assert !instance.exists(h4);
     }
 }
