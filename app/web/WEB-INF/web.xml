@@ -10,11 +10,11 @@
     version="3.0">
 
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>src.AppTestServlet</servlet-class>
+        <servlet-name>Habitations</servlet-name>
+        <servlet-class>src.HabitationsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>Habitations</servlet-name>
+        <url-pattern>/habitations</url-pattern>
     </servlet-mapping>
 </web-app>

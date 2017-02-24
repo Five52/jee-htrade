@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 
+    </div>
 </main>
 <footer>
     <p>

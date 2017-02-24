@@ -15,14 +15,11 @@
                     <a href="/">Accueil</a>
                 </li>
                 <li>
-                    <a href="/">Appartements</a>
-                </li>
-                <li>
-                    <a href="/">Maisons</a>
+                    <a href="/htrade/habitations">Habitations</a>
                 </li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Plateforme d'échanges d'habitations</h1>
+        <div class="wrapper">
 </body>
