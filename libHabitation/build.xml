@@ -30,8 +30,8 @@
 
     <target name="compiletest">
         <javac srcdir="." destdir="build" classpath="build" classpathref="junit" includeantruntime="false">
-            <include name="test/**/*.java"/>
             <classpath refid="external" />
+            <include name="test/**/*.java"/>
         </javac>
     </target>
 
