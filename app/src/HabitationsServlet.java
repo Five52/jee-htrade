@@ -13,7 +13,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import javax.servlet.http.*;
-import javax.servlet.*;
+import javax.servlet.ServletException;
 
 public class HabitationsServlet extends HttpServlet {
 
@@ -42,7 +42,6 @@ public class HabitationsServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         this.processRequest(req, res);
-        this.getServletContext().getRequestDispatcher("/pages/hello.jsp").forward(req, res);
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
