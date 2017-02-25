@@ -4,7 +4,7 @@
 <property name="autodeploydir" value="../htrade/autodeploy" />
 
 <path id="jee">
-    <fileset dir="PATH TO GLASSFISH MODULE">
+    <fileset dir="GLASSFISH_PATH">
     <include name="*.jar"/>
   </fileset>
 </path>
